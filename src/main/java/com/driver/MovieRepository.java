@@ -67,7 +67,7 @@ public class MovieRepository {
                     directors.remove(pairs.get(i).D);
             }
         }
-        pairs.clear();
+        
     }
 
     public void deleteAllDirector(){
@@ -81,6 +81,7 @@ public class MovieRepository {
             
                 
         }
+        pairs.clear();
     }
 }
 
