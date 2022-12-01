@@ -1,8 +1,13 @@
+package com.driver;
 import org.springframework.stereotype.Component;
 
 
 public class Director {
     
+    
+    public Director() {
+    }
+
     private String name;
     private int numberOfMovies;
     private double imdbRating;

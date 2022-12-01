@@ -1,3 +1,4 @@
+package com.driver;
 import java.util.HashMap;
 import java.util.List;
 import java.util.ArrayList;
@@ -14,15 +15,15 @@ public class MovieRepository {
     ArrayList<Pair> pairs = new ArrayList<>();
 
     public void addMovietoMap(Movie m){
-        Movies.put(m.getName,m);
+        Movies.put(m.getName(),m);
     }
 
     public Movie getMoviefromMap(String name){
-        return movies.get(name);
+        return Movies.get(name);
     }
 
     public void addDirectortoMap(Director d){
-        directors.put(d.getName,d);
+        directors.put(d.getName(),d);
     }
 
     public Director getDirectorfromMap(String name){
@@ -49,28 +50,34 @@ public class MovieRepository {
         List<String> directorsMovie= new ArrayList<>();
 
         for(int i=0;i<pairs.size();i++){
-            if(pairs.get(i).D==dname)
+            if(pairs.get(i).D.equals(dname))
                 directorsMovie.add(pairs.get(i).M);
         }
 
         return directorsMovie;
     }
 
-    public void deleteDirectorfromMap(String name){
+    public void deleteDirectorfromMap(String dname){
 
         for(int i=0;i<pairs.size();i++){
-            if(pairs.get(i).D==dname){
-                Movies.remove(pairs.get(i).M);
-                pairs.remove(i);
+            if(pairs.get(i).D.equals(dname)){
+                if(Movies.containsKey(pairs.get(i).M))
+                    Movies.remove(pairs.get(i).M);
+                if(directors.containsKey(dname))
+                    directors.remove(pairs.get(i).D);
             }
         }
+        pairs.clear();
     }
 
     public void deleteAllDirector(){
 
         for(int i=0;i<pairs.size();i++){
-            Movies.remove(pairs.get(i).M);
-            pairs.remove(i);
+            if(Movies.containsKey(pairs.get(i).M))
+                    Movies.remove(pairs.get(i).M);
+            
+            if(directors.containsKey(pairs.get(i).D))
+                    directors.remove(pairs.get(i).D);
             
                 
         }

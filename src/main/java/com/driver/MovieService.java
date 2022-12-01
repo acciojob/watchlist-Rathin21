@@ -1,3 +1,6 @@
+package com.driver;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -47,7 +50,7 @@ public class MovieService {
 
     public void deleteDirectorfromDb(String name){
 
-        return mRepo.deleteDirectorfromMap(name);
+        mRepo.deleteDirectorfromMap(name);
     }
 
     public void deleteAllDirectorfromDb(){
